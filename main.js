@@ -4,13 +4,13 @@ function setup(){
     loadImg(0, "image/hai.png");
     var BLOCK = ["ove", "B_ove", "G_ove", "Y_ove", "P_ove", "BR_ove", "GR_ove"];
     for(var i=0; i<=BLOCK.length; i++)
-        loadImg(1+i, "/image/"+BLOCK[i]+".png");
+        loadImg(1+i, "image/"+BLOCK[i]+".png");
 
     var sound = ["delete", "mission", "start", "option", "check", 
         "score", "cansel", "gameover 1", "gameover 2", "mainBGM", 
         "tytle", "menu", "sound"];
     for(var s=0; s<=sound.length; s++)
-        loadSound(s+1, "/music/"+sound[s]+".m4a");
+        loadSound(s+1, "music/"+sound[s]+".m4a");
 }
 
 /*------メイン------*/
