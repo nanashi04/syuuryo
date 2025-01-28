@@ -153,8 +153,8 @@ function mainloop(){
         drawPzl();
         drawEffect();
         Sound();
-        BGM(10);
         Pause();
+        BGM(10);
         //ゲーム終了
         if(procPzl() == 0){
             stopBgm(10);
