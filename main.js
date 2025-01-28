@@ -10,7 +10,7 @@ function setup(){
         "score", "cansel", "gameover 1", "gameover 2", "mainBGM", 
         "tytle", "menu", "sound"];
     for(var s=0; s<=sound.length; s++)
-        loadSound(s+1, "music/"+sound[s]+".mp3");
+        loadSound(s+1, "music/"+sound[s]+".m4a");
 }
 
 /*------メイン------*/
@@ -150,11 +150,11 @@ function mainloop(){
         
         //ゲームプレイ
         case 1:
-        BGM(10);
         drawPzl();
         drawEffect();
         Sound();
-        Pause();        
+        BGM(10);
+        Pause();
         //ゲーム終了
         if(procPzl() == 0){
             stopBgm(10);
