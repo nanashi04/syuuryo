@@ -10,7 +10,7 @@ function setup(){
         "score", "cansel", "gameover 1", "gameover 2", "mainBGM", 
         "tytle", "menu", "sound"];
     for(var s=0; s<=sound.length; s++)
-        loadSound(s+1, "music/"+sound[s]+".m4a");
+        loadSound(s+1, "music/"+sound[s]+".mp3");
 }
 
 /*------メイン------*/
