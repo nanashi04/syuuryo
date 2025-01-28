@@ -19,6 +19,7 @@ function mainloop(){
     drawImg(0, 0, 0);
     switch(idx){
         case 0:
+        BGM(11);
         var tap2 = [0];
         var a,b,c,d,e;
         var z=0;
