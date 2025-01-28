@@ -150,11 +150,11 @@ function mainloop(){
         
         //ゲームプレイ
         case 1:
+        BGM(10);
         drawPzl();
         drawEffect();
         Sound();
-        Pause();
-        BGM(10);
+        Pause();        
         //ゲーム終了
         if(procPzl() == 0){
             stopBgm(10);
