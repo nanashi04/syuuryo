@@ -8,6 +8,7 @@ function drawPzl(){
     Button(); 
     timeCount();
     mission();
+    BGM(10);
     //次のブロック表示
     for(x=0; x<2; x++)
         drawImg(block[2+x], 700+80*x, 150);
