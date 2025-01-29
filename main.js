@@ -154,7 +154,7 @@ function mainloop(){
         drawEffect();
         Sound()    
         Pause();
-        if(procPzl() > 0)
+        if(procPzl() != 0)
             BGM(10);
         //ゲーム終了
         else if(procPzl() == 0){
