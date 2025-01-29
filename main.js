@@ -152,9 +152,7 @@ function mainloop(){
         case 1:
         drawPzl();
         drawEffect();
-        Sound();
-        BGM(11);
-        BGM(10);    
+        Sound()    
         Pause();
         //ゲーム終了
         if(procPzl() == 0){
