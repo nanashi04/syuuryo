@@ -1,7 +1,6 @@
 /*------ブロック操作-------*/
 function procPzl(){
     var c, i, n, x, y;
-    BGM(10);
     if(tapC>0 && 960<tapY && tapY<1200){
         c = int(tapX/240);
         if(0<=c && c<=3)
