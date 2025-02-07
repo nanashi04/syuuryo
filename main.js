@@ -10,7 +10,7 @@ function setup(){
         "score", "cansel", "gameover 1", "gameover 2", "mainBGM", 
         "tytle", "menu", "sound"];
     for(var s=0; s<=sound.length; s++)
-        loadSound(s+1, "music/"+sound[s]+".mp3");
+        loadSound(s+1, "sound/"+sound[s]+".mp3");
 }
 
 /*------メイン------*/
@@ -18,16 +18,34 @@ function mainloop(){
     tmr++;
     drawImg(0, 0, 0);
     switch(idx){
+        //起動画面
+        case 7:
+        Sound();
+        if(tmr%40 < 20)
+            fText('TAP TO START', 480, 680, 80, "pink");
+        
+        if(0<tapY && tapY<1200 && tapC>0){
+            if(0<tapX && tapX<960){
+                tapC=0;
+                idx=0;
+                SE(3);
+            }
+        }
+        if(key[32]==1){
+            key[32]++;
+            idx=0;
+            SE(3);
+        }
+        break;
+
         case 0:
-        var tap2 = [0];
-        var a,b,c,d,e;
-        var z=0;
+        var a,b,c,d,e,f;
         Pause();
         lineW(5);
         fText("斜め判定を入れるか", 500, 490, 80, "cyan");
         fText("難易度選択", 500, 170, 80, "cyan");
         Sound();
-
+        BGM(11);
         //タップ判定上
         if(250<tapY && tapY<400 && tapC>0){
             //ノーマル
@@ -59,8 +77,8 @@ function mainloop(){
         //決定ボタン判定
         if(900<tapY && tapY<1100 && tapC>0){
             if(150<tapX && tapX<800){
-                tap2[z]++;
-            }   
+                f=1;
+            }
         }
         //スコアリセット判定
         if(750<tapY && tapY<850 && tapC>0){
@@ -139,27 +157,29 @@ function mainloop(){
         fText("SCORE RESET", 480, 800, 50, "white");
         
         //ゲームスタート
-        if(key[32]>0 || tap2[z]>0){
+        if(key[32]==1 || f>0){
+            key[32]++;
             int(clrBlock());
             initvar();
             SE(3);
-            idx = 1;
+            stopBgm(11);
+            idx++;
             tmr = 0;
         }
+        
         break;
         
         //ゲームプレイ
         case 1:
         drawPzl();
         drawEffect();
-        Sound()    
+        Sound();
+        BGM(10);
         Pause();
-        if(procPzl() != 0)
-            BGM(10);
         //ゲーム終了
-        else if(procPzl() == 0){
+        if(procPzl() == 0){
             stopBgm(10);
-            idx = 2;
+            idx++;
             tmr = 0;
             tmr++;
         }
@@ -185,6 +205,7 @@ function mainloop(){
             if(tmr > 30*5){
                 idx=0;
                 stopBgm(9);
+                BGM(11);
             }   
         }
         //時間切れのとき
@@ -195,6 +216,7 @@ function mainloop(){
             BGM(8);
             if(tmr > 30*3.8){
                 stopBgm(8);
+                BGM(11);
                 idx=0;
             }
         }
@@ -333,6 +355,9 @@ function mainloop(){
             SE(7);
             idx=1;
         }
+        break;
+
+        default:
         break;
     }
 }
